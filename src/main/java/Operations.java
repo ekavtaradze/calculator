@@ -9,6 +9,16 @@ public class Operations {
         return doOperation(firstPart, operator, secondPart);
     }
 
+    static float prepOperation(float firstPart, char operator, Float secondPart) {
+        String op = String.valueOf(operator);
+        return doOperation(firstPart, op, secondPart);
+    }
+    static float prepOperation(String firstPart, char operator, Float secondPart) {
+       Float first = Float.parseFloat(firstPart);
+        String op = String.valueOf(operator);
+        return doOperation(first, op, secondPart);
+    }
+
     /**
      * This function calculates input operation on two input numbers
      * @param firstPart the first/left part of the operation

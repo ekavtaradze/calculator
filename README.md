@@ -2,7 +2,7 @@
 
 ####DESCRIPTION
 
-Calculator program for basic Mathematical equations.
+Calculator program for basic Mathematical equations using Recursive Descent Parsing method
 
 ##### Supported Features
 - Command Line input

@@ -15,18 +15,22 @@ public class OperatorTests {
         assertEquals("-0.58678", Calculator.calculate("-.58678"));
         assertEquals("Syntax Error", Calculator.calculate("2+-+-4"));
         assertEquals("Invalid Input", Calculator.calculate("19 + cinnamon"));
-        //assertEquals("7", Calculator.calculate("(4-2)*3.5"));
+        assertEquals("7", Calculator.calculate("(4-2)*3.5"));
+
 
     }
 
     @Test
     public void checkMultDiv() {
-        assertEquals(1, EquationSplitter.calculateDivAndMult( "4/4"), 0.002);
-        assertEquals(0.3248, EquationSplitter.calculateDivAndMult( "-4*-.3248/4"), 0.002);
-        assertEquals(-0.3248, EquationSplitter.calculateDivAndMult( "-4*-.3248/-4"), 0.002);
-        assertEquals(4,EquationSplitter.calculateDivAndMult( "4"), 0.002);
+        assertEquals(1, EquationSplitter.splitMultDiv("4/4"), 0.002);
+        assertEquals(0.3248, EquationSplitter.splitMultDiv("-4*-.3248/4"), 0.002);
+        assertEquals(-0.3248, EquationSplitter.splitMultDiv("-4*-.3248/-4"), 0.002);
+        assertEquals(4, EquationSplitter.splitMultDiv("4"), 0.002);
 
     }
+
+
+
 
 
 

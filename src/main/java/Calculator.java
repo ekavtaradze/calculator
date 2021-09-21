@@ -27,7 +27,7 @@ public class Calculator {
         equation = equation.replace(" ", "");
         if (Validator.checkValidity(equation)) {
             if (Validator.checkSyntax(equation)) {
-                float f = EquationSplitter.splitAndCalculateAddSub(equation);
+                float f = EquationSplitter.splitAndCalculateParenthesis(equation);
                 return formatOutput(f);
             } else return "Syntax Error";
         } else return "Invalid Input";
