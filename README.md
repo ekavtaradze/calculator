@@ -1,6 +1,6 @@
 # Simple Calculator
 
-####DESCRIPTION
+#### DESCRIPTION
 
 Calculator program for basic Mathematical equations
 
