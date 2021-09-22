@@ -10,6 +10,7 @@ run with maven or Main Class
 ##### Supported Features
 - Command Line input
 - Addition(+), Subtraction(-), Multiplication(*), Division(/) on all integers and decimals
+- Nested operations
 - Allowed characters >> + - / * ( ) .
 - The output will be rounded to the 5th decimal or less
 
@@ -28,7 +29,3 @@ run with maven or Main Class
  - Maven
  - Java JDK 1.8
  - JUnit
-
-
-To-Do:
- - Nested operations (nested up to ? times)
