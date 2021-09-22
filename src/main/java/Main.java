@@ -9,8 +9,14 @@ public class Main {
             System.out.println();
             System.out.println("Please Enter your Equation :");
             String equation = scanner.next();
+            if(equation.equals("^c") || equation.equals("^C") ){
+                System.out.println("Bye!");
+                scanner.close();
+                return;
+            }
             System.out.println("Just a second. Calculating...");
-            System.out.println("The answer is >> "+Calculator.calculate(equation));
+            System.out.println(">> "+Calculator.calculate(equation));
         }
+
     }
 }

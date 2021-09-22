@@ -4,10 +4,14 @@
 
 Calculator program for basic Mathematical equations
 
+##### Run
+run with mave
+
 ##### Supported Features
 - Command Line input
 - Addition(+), Subtraction(-), Multiplication(*), Division(/) on all integers and decimals
-- The output will round to the 5th decimal
+- Allowed characters >> + - / * ( ) .
+- The output will be rounded to the 5th decimal or less
 
 ##### Examples
 - "1+2" >>> 3
