@@ -2,11 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println(Calc.dealwithMinus("-3+4--3-4"));
-        // create a scanner so we can read the command-line input
         Scanner scanner = new Scanner(System.in);
-
-        //  prompt for the user's name
         System.out.println("Hello, This is Calculator");
 
         while(true){

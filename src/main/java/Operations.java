@@ -1,20 +1,11 @@
 public class Operations {
 
-    static float prepOperation(float firstPart, String operator, String second) {
-        float secondPart = Float.parseFloat(second);
-        return doOperation(firstPart, operator, secondPart);
-    }
-
-    static float prepOperation(float firstPart, String operator, Float secondPart) {
-        return doOperation(firstPart, operator, secondPart);
-    }
-
-    static float prepOperation(float firstPart, char operator, Float secondPart) {
+    static double prepOperation(double firstPart, char operator, double secondPart) {
         String op = String.valueOf(operator);
         return doOperation(firstPart, op, secondPart);
     }
-    static float prepOperation(String firstPart, char operator, Float secondPart) {
-       Float first = Float.parseFloat(firstPart);
+    static double prepOperation(String firstPart, char operator, double secondPart) {
+       double first = Double.parseDouble(firstPart);
         String op = String.valueOf(operator);
         return doOperation(first, op, secondPart);
     }
@@ -26,8 +17,8 @@ public class Operations {
      * @param secondPart the second/right part of the operation
      * @return the answer of the operation as a float
      * */
-    private static float doOperation(float firstPart, String operator, Float secondPart) {
-        float answer= 0;
+    private static double doOperation(double firstPart, String operator, double secondPart) {
+        double answer= 0;
 
         System.out.println();
         if ("+".equals(operator)) {

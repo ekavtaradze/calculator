@@ -2,6 +2,7 @@ import java.util.Stack;
 
 class EquationSplitter {
 
+    static String operators = "+-/*";
 
     /**
      * This function finds and calculates the multiplications and divisions in the equation
@@ -9,9 +10,9 @@ class EquationSplitter {
      * @param equation the equation to be calculated
      * @return the answer of the input equation as float
      */
-    static float splitMultDiv(String equation) {
+    static double splitMultDiv(String equation) {
         String firstPart = "";
-        float secondPart = 0;
+        double secondPart = 0;
         for (int i = 1; i < equation.length(); i++) {
             char c = equation.charAt(i);
             if (c == '*' || c == '/') {
@@ -31,13 +32,13 @@ class EquationSplitter {
      * @param equation the equation to be calculated
      * @return the answer of the input equation as float
      */
-    static float splitPlusMinus(String equation) {
-        float firstPart = 0;
-        float secondPart = 0;
+    static double splitPlusMinus(String equation) {
+        double firstPart = 0;
+        double secondPart = 0;
         char c;
         for (int i = 1; i < equation.length(); i++) {
             c = equation.charAt(i);
-            if (c == '+' || c == '-') {
+            if (c == '+' || (c == '-' && operators.indexOf(equation.charAt(i - 1)) == -1)) {
                 firstPart = splitMultDiv(equation.substring(0, i));
                 secondPart = splitPlusMinus(equation.substring(i + 1));
                 return Operations.prepOperation(firstPart, c, secondPart);
@@ -47,34 +48,41 @@ class EquationSplitter {
     }
 
 
-    static float splitAndCalculateParenthesis(String equation) {
-        Stack<Parenthesis> stack = new Stack<>();
+    /**
+     * This function splits the input equation by parenthesis. Keeps a stack to check the syntax validity
+     * of parentheses
+     *
+     * @param equation the equation to be calculated
+     * @return the answer of the input equation as float
+     */
+    static double splitAndCalculateParenthesis(String equation) throws Exception {
+        Stack<Integer> stack = new Stack<>();
+
         char c;
+
         for (int i = 0; i < equation.length(); i++) {
             c = equation.charAt(i);
             if (c == '(') {
-                Parenthesis p = new Parenthesis('(', i);
-                stack.push(p);
+                stack.push(i);
             } else if (c == ')') {
                 if (stack.isEmpty()) {
-                    //Syntax Error
+                    throw new Exception("Syntax Error");
                 } else {
-                    Parenthesis pop = stack.peek();
-                    if (pop.value != '(') {
-                        //error
-                    } else {
-                        // ( 3 + (4-3))
-                        String firstPart = equation.substring(0, pop.index);
-                        String middlePart = equation.substring(pop.index+1, i);
-                        String lastPart = equation.substring(i+1);
-                        equation =  firstPart+
-                                splitPlusMinus(middlePart) + lastPart;
-                        //ans += splitPlusMinus()
-                    }
+                    int index = stack.peek();
+                    stack.pop();
+                    String firstPart = equation.substring(0,index);
+                    double middle = splitPlusMinus(equation.substring(index+1, i));
+                    String end = equation.substring(i+1);
+                    equation = firstPart+middle+end;
+                    i = index+1;
                 }
             }
 
         }
+        if (!stack.isEmpty()) {
+            throw new Exception("Syntax Error");
+        }
         return splitPlusMinus(equation);
     }
 }
+

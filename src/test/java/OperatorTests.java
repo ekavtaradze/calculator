@@ -4,9 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 public class OperatorTests {
 
-    //provided with assignment
     @Test
-    public void givenTests() {
+    public void calculateTests() {
         assertEquals("3", Calculator.calculate("1 + 2"));
         assertEquals("-1", Calculator.calculate("1 - 2"));
         assertEquals("10", Calculator.calculate("4*5/2"));
@@ -16,8 +15,13 @@ public class OperatorTests {
         assertEquals("Syntax Error", Calculator.calculate("2+-+-4"));
         assertEquals("Invalid Input", Calculator.calculate("19 + cinnamon"));
         assertEquals("7", Calculator.calculate("(4-2)*3.5"));
-
-
+        assertEquals("7", Calculator.calculate("((4-2))*3.5"));
+        assertEquals("-3", Calculator.calculate("(4-2*3.5)"));
+        assertEquals("-3", Calculator.calculate("((3*.5))*-2"));
+        assertEquals("0", Calculator.calculate("((3*.5))*(-2+2)"));
+        assertEquals("Syntax Error", Calculator.calculate("((3*2)))"));
+        assertEquals("Syntax Error", Calculator.calculate("((((3*2)))"));
+        assertEquals("2", Calculator.calculate("((((((((((((2))))))))))))"));
     }
 
     @Test
@@ -26,16 +30,7 @@ public class OperatorTests {
         assertEquals(0.3248, EquationSplitter.splitMultDiv("-4*-.3248/4"), 0.002);
         assertEquals(-0.3248, EquationSplitter.splitMultDiv("-4*-.3248/-4"), 0.002);
         assertEquals(4, EquationSplitter.splitMultDiv("4"), 0.002);
-
     }
-
-
-
-
-
-
-
-
 
 
 }

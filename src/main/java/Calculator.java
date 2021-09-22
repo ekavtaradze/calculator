@@ -1,3 +1,6 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Calculator {
 
     /**
@@ -8,11 +11,10 @@ public class Calculator {
      * @param output the output float of the calculator
      * @return output formatted as String
      */
-    static String formatOutput(Float output) {
-        if (output % 1 != 0)
-            return String.format("%s", output);
-        else
-            return String.format("%.0f", output);
+    static String formatOutput(double output) {
+        DecimalFormat format = new DecimalFormat("#.#####");
+        format.setRoundingMode(RoundingMode.CEILING);
+        return format.format(output);
     }
 
     /**
@@ -27,8 +29,12 @@ public class Calculator {
         equation = equation.replace(" ", "");
         if (Validator.checkValidity(equation)) {
             if (Validator.checkSyntax(equation)) {
-                float f = EquationSplitter.splitAndCalculateParenthesis(equation);
-                return formatOutput(f);
+                try {
+                    double ans = EquationSplitter.splitAndCalculateParenthesis(equation);
+                    return formatOutput(ans);
+                } catch (Exception e) {
+                    return e.getMessage();
+                }
             } else return "Syntax Error";
         } else return "Invalid Input";
     }

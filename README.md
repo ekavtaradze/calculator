@@ -2,12 +2,12 @@
 
 ####DESCRIPTION
 
-Calculator program for basic Mathematical equations using Recursive Descent Parsing method
+Calculator program for basic Mathematical equations
 
 ##### Supported Features
 - Command Line input
 - Addition(+), Subtraction(-), Multiplication(*), Division(/) on all integers and decimals
-- ??? 
+- The output will round to the 5th decimal
 
 ##### Examples
 - "1+2" >>> 3
@@ -16,7 +16,8 @@ Calculator program for basic Mathematical equations using Recursive Descent Pars
 - "-.32   /.5" >>> -0.64
 - "2+-+-4" >>> Syntax Error
 - "89 + word" >>> Invalid Input
-- one with nested
+- "((3*.5))*(-2+2)" >> 0
+- "((((3*2)))" >> Syntax Error
 
 
 ##### Utilizing
