@@ -5,7 +5,7 @@
 Calculator program for basic Mathematical equations
 
 ##### Run
-run with mave
+run with maven or Main Class
 
 ##### Supported Features
 - Command Line input
