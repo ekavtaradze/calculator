@@ -1,31 +1,31 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class InputValidationTests {
 
     @Test
     public void checkInputValidity() {
-        assertEquals(true, Validator.checkValidity("4/4"));
-        assertEquals(true, Validator.checkValidity("-4*-.3248/4"));
-        assertEquals(false, Validator.checkValidity("-4*-.3248/4+c"));
-        assertEquals(false, Validator.checkValidity("19 + cinnamon"));
+        assertTrue(Validator.checkValidity("4/4"));
+        assertTrue(Validator.checkValidity("-4*-.3248/4"));
+        assertFalse(Validator.checkValidity("-4*-.3248/4+c"));
+        assertFalse(Validator.checkValidity("19 + cinnamon"));
 
     }
 
     @Test
     public void checkInputSyntax() {
-        assertEquals(true, Validator.checkSyntax("-4/4"));
-        assertEquals(true, Validator.checkSyntax("--4/4"));
-        assertEquals(false, Validator.checkSyntax("++4/4"));
-        assertEquals(true, Validator.checkSyntax("4+-4"));
-        assertEquals(false, Validator.checkSyntax("4+-+4"));
-        assertEquals(false, Validator.checkSyntax("4*//4"));
-        assertEquals(false, Validator.checkSyntax("0.457**4"));
-        assertEquals(false, Validator.checkSyntax("2+-+-4"));
-        assertEquals(false, Validator.checkSyntax("2/-+4"));
-        assertEquals(true, Validator.checkSyntax("-5+-8--11*2"));
-        assertEquals(false, Validator.checkSyntax("-5++-8--11*2"));
+        assertTrue(Validator.checkSyntax("-4/4"));
+        assertTrue(Validator.checkSyntax("--4/4"));
+        assertFalse(Validator.checkSyntax("++4/4"));
+        assertTrue(Validator.checkSyntax("4+-4"));
+        assertFalse(Validator.checkSyntax("4+-+4"));
+        assertFalse(Validator.checkSyntax("4*//4"));
+        assertFalse(Validator.checkSyntax("0.457**4"));
+        assertFalse(Validator.checkSyntax("2+-+-4"));
+        assertFalse(Validator.checkSyntax("2/-+4"));
+        assertTrue(Validator.checkSyntax("-5+-8--11*2"));
+        assertFalse(Validator.checkSyntax("-5++-8--11*2"));
     }
 
 }

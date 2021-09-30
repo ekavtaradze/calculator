@@ -45,10 +45,7 @@ class EquationSplitter {
      */
     static double splitAndCalculateParenthesis(String equation) throws Exception {
         Stack<Integer> stack = new Stack<>();
-
         char c;
-
-        // O N
         for (int i = 0; i < equation.length(); i++) {
             c = equation.charAt(i);
             if (c == '(') {
@@ -71,7 +68,6 @@ class EquationSplitter {
         if (!stack.isEmpty()) {
             throw new Exception("Syntax Error");
         }
-        System.out.println("End of parent " + equation);
         return splitPlusMinus(equation);
     }
 }

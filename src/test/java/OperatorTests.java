@@ -22,14 +22,9 @@ public class OperatorTests {
         assertEquals("Syntax Error", Calculator.calculate("((3*2)))"));
         assertEquals("Syntax Error", Calculator.calculate("((((3*2)))"));
         assertEquals("2", Calculator.calculate("((((((((((((2))))))))))))"));
-       // assertEquals("2", Calculator.calculate("(2+450901.09034578435)/(3948610723874*947382758/0.5)+123"));
+       //assertEquals("2", Calculator.calculate("(2+450901.09034578435)/(3948610723874*947382758/0.5)+123"));
     }
 
-    @Test
-    public void check() {
-        assertEquals("-3", Calculator.calculate("((3*.5))*-2"));
-
-    }
     @Test
     public void checkMultDiv() {
         assertEquals(1, EquationSplitter.splitMultDiv("4/4"), 0.002);
