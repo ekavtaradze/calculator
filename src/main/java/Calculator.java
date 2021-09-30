@@ -11,6 +11,7 @@ public class Calculator {
      * @param output the output float of the calculator
      * @return output formatted as String
      */
+    // O N?
     static String formatOutput(double output) {
         DecimalFormat format = new DecimalFormat("#.#####");
         format.setRoundingMode(RoundingMode.CEILING);

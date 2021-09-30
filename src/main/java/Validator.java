@@ -11,6 +11,7 @@ class Validator {
      * @param equation the equations to be checked for validity
      * @return true if input equation is valid, false otherwise
      * */
+    //O N
     static boolean checkValidity(String equation) {
         Pattern regex = Pattern.compile(validityPattern);
         Matcher m = regex.matcher(equation);
@@ -22,6 +23,7 @@ class Validator {
      * @param equation the equations to be checked for validity
      * @return true if input equation is valid, false otherwise
      * */
+    //O N
     static boolean checkSyntax(String equation) {
         Pattern regex = Pattern.compile(syntaxPattern);
         Matcher m = regex.matcher(equation);
