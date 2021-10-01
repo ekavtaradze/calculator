@@ -9,7 +9,7 @@ public class OperatorTests {
         assertEquals("3", Calculator.calculate("1 + 2"));
         assertEquals("-1", Calculator.calculate("1 - 2"));
         assertEquals("10", Calculator.calculate("4*5/2"));
-        assertEquals("-0.63999", Calculator.calculate("-.32       /.5"));
+        assertEquals("-0.64", Calculator.calculate("-.32       /.5"));
         assertEquals("9", Calculator.calculate("-5+-8--11*2"));
         assertEquals("-0.58678", Calculator.calculate("-.58678"));
         assertEquals("Syntax Error", Calculator.calculate("2+-+-4"));
@@ -22,7 +22,8 @@ public class OperatorTests {
         assertEquals("Syntax Error", Calculator.calculate("((3*2)))"));
         assertEquals("Syntax Error", Calculator.calculate("((((3*2)))"));
         assertEquals("2", Calculator.calculate("((((((((((((2))))))))))))"));
-       //assertEquals("2", Calculator.calculate("(2+450901.09034578435)/(3948610723874*947382758/0.5)+123"));
+        assertEquals("3740845717852126700000", Calculator.calculate("3948610723874*947382758"));
+        assertEquals("123", Calculator.calculate("(2+450901.09034578435)/(3948610723874*947382758/0.5)+123"));
     }
 
     @Test

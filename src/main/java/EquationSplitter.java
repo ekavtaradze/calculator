@@ -14,7 +14,7 @@ class EquationSplitter {
             String secondPart = equation.substring(max + 1);
             return Operations.doMultDiv(firstPart, equation.charAt(max), secondPart);
         }
-        return Float.parseFloat(equation);
+        return Double.parseDouble(equation);
     }
 
     /**
@@ -45,9 +45,10 @@ class EquationSplitter {
      */
     static double splitAndCalculateParenthesis(String equation) throws Exception {
         Stack<Integer> stack = new Stack<>();
-        char c;
-        for (int i = 0; i < equation.length(); i++) {
-            c = equation.charAt(i);
+        int i = 0;
+        while (SplitterHelper.includesParenth(equation, i)) {
+            i = SplitterHelper.findFirstParenth();
+            char c = equation.charAt(i);
             if (c == '(') {
                 stack.push(i);
             } else if (c == ')') {
@@ -60,10 +61,10 @@ class EquationSplitter {
                     double middle = splitPlusMinus(equation.substring(index + 1, i));
                     String end = equation.substring(i + 1);
                     equation = firstPart + middle + end;
-                    i = index + 1;
+                    i = index;
                 }
             }
-
+            i++;
         }
         if (!stack.isEmpty()) {
             throw new Exception("Syntax Error");

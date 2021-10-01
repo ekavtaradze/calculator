@@ -10,6 +10,7 @@ through every character(instead of looping, just recursion)
 - split big (Operations) doOperation function into doAddSub and doMultDiv functions
 - simplified some if statements
 - simplified assertions in Validation Tests
+- 
 
 ##### Run
 run with maven or Main Class
