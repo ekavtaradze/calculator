@@ -9,7 +9,7 @@ class EquationSplitter {
      */
     static double splitMultDiv(String equation) {
         if (SplitterHelper.includesMultDiv(equation)) {
-            int max = SplitterHelper.findMax();
+            int max = SplitterHelper.findLastMultDiv();
             double firstPart = splitMultDiv(equation.substring(0, max));
             String secondPart = equation.substring(max + 1);
             return Operations.doMultDiv(firstPart, equation.charAt(max), secondPart);
@@ -27,7 +27,7 @@ class EquationSplitter {
      */
     private static double splitPlusMinus(String equation) {
         if (SplitterHelper.includesPlusMinus(equation)) {
-            int min = SplitterHelper.findMin();
+            int min = SplitterHelper.findFirstPlusMinus();
             double firstPart = splitMultDiv(equation.substring(0, min));
             double secondPart = splitPlusMinus(equation.substring(min + 1));
             return Operations.doAddSub(firstPart, equation.charAt(min), secondPart);
